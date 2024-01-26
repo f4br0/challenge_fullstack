@@ -1,0 +1,9 @@
+/* styles.module.css */
+.item {
+  transition: background-color 0.3s ease;
+}
+
+.item:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
