@@ -6,6 +6,7 @@ import styles from '../ui/styles.module.css';
 import ItemList from "../ui/ItemList";
 import History from "../ui/Hystory";
 import { Box } from "@mui/material";
+import { Suspense } from "react";
 
 export default async function Items({
   searchParams,
@@ -20,7 +21,9 @@ export default async function Items({
   console.log(items);
   return (
     <>
-      <Search placeholder={"Search"} />
+      <Suspense>
+        <Search placeholder={"Search"} />
+      </Suspense>
       <Box sx={{
         display: 'flex',
         minHeight: '100vh',

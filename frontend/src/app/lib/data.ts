@@ -3,7 +3,7 @@ export async function fetchFilteredItems(
   search: string,
 ) {
   try {
-    const response = await fetch(`http://localhost:5001/api/item?search=${search}&limit=${ITEMS_LIMIT}`);
+    const response = await fetch(`${process.env.API_URL}/api/item?search=${search}&limit=${process.env.LIMIT_ITEM}`);
     return await response.json();
   } catch (error) {
     console.error('Fetch Error:', error);
@@ -15,7 +15,7 @@ export async function fetchItem(
   itemId: string,
 ) {
   try {
-    const response = await fetch(`http://localhost:5001/api/item/${itemId}`);
+    const response = await fetch(`${process.env.API_URL}/api/item/${itemId}`);
     return await response.json();
   } catch (error) {
     console.error('Fetch Error:', error);
