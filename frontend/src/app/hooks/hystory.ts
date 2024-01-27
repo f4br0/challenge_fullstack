@@ -6,5 +6,5 @@ interface State {
 }
 export const historyStore = create<State>(set => ({
   history: [],
-  add: (search ) => set(state => ({ history: [search, ...state.history].slice(0, 8)})), 
+  add: (search ) => set(state => ({ history: [search, ...state.history].slice(0, 6)})), 
 }));

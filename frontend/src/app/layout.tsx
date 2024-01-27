@@ -30,7 +30,7 @@ export default function RootLayout({
           }}
         >
           <h2>
-            Welcome to My App
+            Welcome to My App Challenge 
           </h2>
           {children}
         </Box>

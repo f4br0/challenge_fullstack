@@ -1,24 +1,25 @@
 'use client';
 
-import { Box, List, ListItem, ListItemText } from "@mui/material";
+import { Box, List, ListItem, ListItemText, ListSubheader } from "@mui/material";
 import { historyStore } from "../hooks/hystory";
 
 export default function History() {
 
   const { history } = historyStore();
-  { console.log(history) }
   return (
     <Box
       sx={{
         width: '100%',
-        maxWidth: 360,
         bgcolor: 'background.paper',
       }}
     >
-      <List component="nav" aria-label="main mailbox folders">
+      <List>
+      <ListSubheader component="div" id="list-subheader" sx={{ fontSize: '1.3rem' }}>
+            History search
+          </ListSubheader>
         {history.map((item, index) => (
           <ListItem key={index}>
-            <ListItemText primary={item} />
+            <ListItemText primary={item} sx={{ fontSize: '0.5rem' }}/>
           </ListItem>
         ))}
       </List>

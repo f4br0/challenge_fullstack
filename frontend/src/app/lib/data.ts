@@ -1,4 +1,4 @@
-const ITEMS_LIMIT = 4;
+const CACHE_LIMIT_DETAIL = 999;
 export async function fetchFilteredItems(
   search: string,
 ) {
@@ -20,5 +20,15 @@ export async function fetchItem(
   } catch (error) {
     console.error('Fetch Error:', error);
     throw new Error('Failed to fetch item by id.');
+  }
+}
+
+export async function fetchItemsId() {
+  try {
+    const response = await fetch(`${process.env.API_URL}/api/item?search=&limit=${CACHE_LIMIT_DETAIL}`);
+    return await response.json();
+  } catch (error) {
+    console.error('Fetch Error:', error);
+    throw new Error('Failed to fetch list items.');
   }
 }

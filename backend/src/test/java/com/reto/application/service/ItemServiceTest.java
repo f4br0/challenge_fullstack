@@ -20,7 +20,7 @@ import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class ItemServiceTest {
+class ItemServiceTest {
 
     @Mock
     private SearchItemLimitUseCase searchItemLimitUseCase;
@@ -32,7 +32,7 @@ public class ItemServiceTest {
     private ItemService itemService;
 
     @Test
-    public void testSearchItem() {
+    void testSearchItem() {
         Item item = new Item(1L, "Item1", "");
         when(searchItemLimitUseCase.execute(any(String.class), anyInt()))
                 .thenReturn(Flux.just(item));
@@ -45,7 +45,7 @@ public class ItemServiceTest {
     }
 
     @Test
-    public void testFindById() {
+    void testFindById() {
         Item item = new Item(1L, "Item1", "Description");
         when(findItemUseCase.execute(anyLong()))
                 .thenReturn(Mono.just(item));

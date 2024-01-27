@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatusCode;
 @Getter
 public class BusinessException extends RuntimeException {
 
-    private HttpStatusCode code;
+    private final HttpStatusCode code;
 
     public BusinessException(HttpStatus httpStatus, String message) {
         super(message);

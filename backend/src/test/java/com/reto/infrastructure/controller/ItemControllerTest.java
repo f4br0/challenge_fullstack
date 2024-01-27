@@ -13,12 +13,12 @@ import reactor.test.StepVerifier;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 
-public class ItemControllerTest {
+class ItemControllerTest {
     private final ItemService itemService = Mockito.mock(ItemService.class);
     private final ItemController itemController = new ItemController(itemService);
 
     @Test
-    public void testSearchItem() {
+    void testSearchItem() {
         ItemResponse itemResponse = new ItemResponse(1L,""); // Set up your ItemResponse
         Mockito.when(itemService.searchItem(any(String.class), any(Integer.class)))
                 .thenReturn(Flux.just(itemResponse));
@@ -31,7 +31,7 @@ public class ItemControllerTest {
     }
 
     @Test
-    public void testGetItem() {
+    void testGetItem() {
         ItemDetailResponse itemDetailResponse = new ItemDetailResponse(1L,"",""); // Set up your ItemDetailResponse
         Mockito.when(itemService.findById(anyLong()))
                 .thenReturn(Mono.just(itemDetailResponse));

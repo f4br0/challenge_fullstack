@@ -10,6 +10,7 @@ export default function ItemList({ items }: { items: Item[] }) {
 
   return (
     <List>
+      {items.length === 0 && (<p>no results</p>)}
       {items.map((item, index) => (
         <Link
           key={`/items/${item.id}`}

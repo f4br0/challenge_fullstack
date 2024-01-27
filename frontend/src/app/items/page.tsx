@@ -16,36 +16,21 @@ export default async function Items({
   };
 }) {
   const search = searchParams?.search || '';
-  console.log(search);
   const items = await fetchFilteredItems(search);
-  console.log(items);
   return (
-    <>
-      <Suspense>
-        <Search placeholder={"Search"} />
-      </Suspense>
-      <Box sx={{
-        display: 'flex',
-        minHeight: '100vh',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'flex-end',
-        p: 6
-      }}>
-        <Box sx={{
-          zIndex: 10,
-          maxWidth: '5xl',
-          width: '100%',
-          display: 'flex',
-          justifyContent: 'space-between',
-          fontFamily: 'monospace',
-          fontSize: 'sm'
-        }}>
-          <ItemList items={items} />
-        </Box>
+    <div className="flex">
+      <div className="flex-grow">
+        <Suspense>
+          <Search placeholder={"Search"} />
+        </Suspense>
+
+        <ItemList items={items} />
+      </div>
+
+      <div className="w-64 ml-24">
         <History />
-      </Box>
-    </>
+      </div>
+    </div>
 
   );
 }
